@@ -7,30 +7,31 @@
     <title>Data Editor</title>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #061C30;">
-    <div class="container">
-      <a class="navbar-brand font-weight-bold" href="index.php"><i class="fas fa-edit"></i> DATA EDITOR</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="https://github.com/tmsyahrilnuralamsyah/JavaHashToWeb">GitHub</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="about.php">About Me</a>
-          </li>
-        </ul>
-      </div>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #008B8B;">
+        <div class="container">
+            <a class="navbar-brand font-weight-bold"><i class="fas fa-edit"></i> DATA EDITOR</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+					<a class="nav-link" href="index.php">Home</a>
+					</li>
+					<li class="nav-item active">
+					<a class="nav-link" href="editor.php">Data</a>
+					</li>
+					<li class="nav-item active">
+					<a class="nav-link" href="about.php">About Me</a>
+					</li>
+				</ul>
+            </div>
+        </div>
+	</nav>
+
+    <div class="container mt-5 justify-content-center">
+        <center>
+            <img src="assets\img\kontak.png" width="25%" class="my-3">
+            <h2>Rizki Nabilah Silmina</h2>
+            <h4>1808107010054</h4>
+        </center>
     </div>
-  </nav>
-  <div class="container mt-5 justify-content-center">
-    <center>
-      <img src="assets\img\kontak.png" width="25%" class="my-3">
-      <h2>Rizki Nabilah Silmina</h2>
-      <h3>1808107010054</h3>
-    </center>
-  </div>
 </body>
 </html>
