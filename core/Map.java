@@ -3,74 +3,56 @@
 import java.util.ArrayList;
 import java.util.Collections;  
 
+public class Map<K, V> { 
 
-// Class to represent entire hash table 
-public class Map<K, V> 
-{ 
-	// bucketArray is used to store array of chains 
 	private ArrayList<HashNode<K, V>> bucketArray; 
-
-	// Current capacity of array list 
 	private int numBuckets; 
-
-	// Current size of array list 
 	private int size; 
 
-	// Constructor (Initializes capacity, size and 
-	// empty chains. 
 	public Map() 
 	{ 
 		bucketArray = new ArrayList<>(); 
 		numBuckets = 10; 
 		size = 0; 
 
-		// Create empty chains 
 		for (int i = 0; i < numBuckets; i++) 
 			bucketArray.add(null); 
 	} 
 
-	public int size() { return size; } 
-	public boolean isEmpty() { return size() == 0; } 
+	public int size() { 
+		return size; 
+	} 
 
-	// This implements hash function to find index 
-	// for a key 
-	private int getBucketIndex(K key) 
-	{ 
+	public boolean isEmpty() { 
+		return size() == 0; 
+	} 
+
+	private int getBucketIndex(K key) { 
 		int hashCode = key.hashCode(); 
 		int index = hashCode % numBuckets; 
 		return Math.abs(index); 
 	} 
 
-	// Method to remove a given key 
-	public V remove(K key) 
-	{ 
-		// Apply hash function to find index for given key 
-		int bucketIndex = getBucketIndex(key); 
+	public V remove(K key) { 
 
-		// Get head of chain 
+		int bucketIndex = getBucketIndex(key); 
 		HashNode<K, V> head = bucketArray.get(bucketIndex); 
 
-		// Search for key in its chain 
 		HashNode<K, V> prev = null; 
-		while (head != null) 
-		{ 
-			// If Key found 
+		while (head != null) { 
+		
 			if (head.key.equals(key)) 
 				break; 
 
-			// Else keep moving in chain 
 			prev = head; 
 			head = head.next; 
 		} 
 
-		// If key was not there 
 		if (head == null) 
 			return null; 
 
-		// Reduce size 
 		size--; 
 
-		// Remove key 
 		if (prev != null) 
 			prev.next = head.next; 
 		else
@@ -79,35 +61,25 @@ public class Map<K, V>
 		return head.value; 
 	}
 
-	// Returns value for a key 
-	public V get(K key) 
-	{ 
-		// Find head of chain for given key 
+	public V get(K key) { 
+		
 		int bucketIndex = getBucketIndex(key); 
 		HashNode<K, V> head = bucketArray.get(bucketIndex); 
 
-		// Search key in chain 
-		while (head != null) 
-		{ 
+		while (head != null) { 
 			if (head.key.equals(key)) 
 				return head.value; 
 			head = head.next; 
 		} 
 
-		// If key not found 
 		return null; 
 	} 
 
-	// Adds a key value pair to hash 
-	public void add(K key, V value) 
-	{ 
-		// Find head of chain for given key 
+	public void add(K key, V value) { 
 		int bucketIndex = getBucketIndex(key); 
 		HashNode<K, V> head = bucketArray.get(bucketIndex); 
 
-		// Check if key is already present 
-		while (head != null) 
-		{ 
+		while (head != null) { 
 			if (head.key.equals(key)) 
 			{ 
 				head.value = value; 
@@ -116,17 +88,13 @@ public class Map<K, V>
 			head = head.next; 
 		} 
 
-		// Insert key in chain 
 		size++; 
 		head = bucketArray.get(bucketIndex); 
 		HashNode<K, V> newNode = new HashNode<K, V>(key, value); 
 		newNode.next = head; 
 		bucketArray.set(bucketIndex, newNode); 
 
-		// If load factor goes beyond threshold, then 
-		// double hash table size 
-		if ((1.0*size)/numBuckets >= 0.7) 
-		{ 
+		if ((1.0*size)/numBuckets >= 0.7) { 
 			ArrayList<HashNode<K, V>> temp = bucketArray; 
 			bucketArray = new ArrayList<>(); 
 			numBuckets = 2 * numBuckets; 
@@ -134,10 +102,8 @@ public class Map<K, V>
 			for (int i = 0; i < numBuckets; i++) 
 				bucketArray.add(null); 
 
-			for (HashNode<K, V> headNode : temp) 
-			{ 
-				while (headNode != null) 
-				{ 
+			for (HashNode<K, V> headNode : temp) { 
+				while (headNode != null) { 
 					add(headNode.key, headNode.value); 
 					headNode = headNode.next; 
 				} 
@@ -145,18 +111,15 @@ public class Map<K, V>
 		} 
 	} 
 
-	public void searchEditor(String key, ArrayList<String> result)
-	{
-		if(result != null)
-		{
+	public void searchEditor(String key, ArrayList<String> result){
+		if(result != null){
 			Collections.sort(result);
 			System.out.println("<h5 class='mb-3'>Daftar artikel dengan editor "+key+" </h5>");
 			System.out.print("<ul class='list-group'>");
 			result.forEach((e)->System.out.print("<li class='list-group-item list-group-item-action'>"+e+"</li>"));
 			System.out.print("</ul>");
 		}
-		else
-		{
+		else{
 			System.out.println("Data For "+key+" Not Found");
 		}
 	}
