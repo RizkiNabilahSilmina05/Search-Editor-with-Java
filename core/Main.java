@@ -4,10 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections; 
 import java.io.*;
 
-public class Main
-{
-	public static void main(String[] args) 
-	{ 
+public class Main{
+	public static void main(String[] args) { 
 		Map<String, ArrayList<String>> map = new Map<>(); 
         ArrayList<String> all = new ArrayList<>();
     	Scanner input = new Scanner(System.in);
@@ -43,7 +41,6 @@ public class Main
         if(args[0].equals("show")){
             Collections.sort(all);
             System.out.println("<table class='table'><tr><th>No</th><th>Nama Editor</th><th>Jumlah Artikel</th></tr>");
-            
             for(int i =0; i<all.size(); i++){
                 ArrayList<String> e = map.get(all.get(i));
                 System.out.println("<tr><td>"+(i+1)+"</td>"+"<td>"+all.get(i)+"</td>"+"<td>"+e.size()+"</td></tr>");
