@@ -32,7 +32,7 @@
         <hr>
 	    <h5>This website displays editor information on the site detik.com article along with the edited article <br>The data obtained comes from the hash data structure that is integrated with the web</h5>
         <br>
-        <a class="btn btn-lg" href="https://github.com/RizkiNabilahSilmina05/Search-Editor-with-Java" style ="background-color:mediumaquamarine"><i class="fab fa-github" style ="font-family: 'marck script',cursive;"></i> Kunjungi Github</a>
+        <a class="btn btn-lg" href="https://github.com/RizkiNabilahSilmina05/Search-Editor-with-Java" style ="background-color:mediumaquamarine"><i class="fab fa-github" style ="font-family: 'marck script',cursive;"></i> Visit My Github</a>
 	</div>
 
 	<script src="assets\js\jquery.min.js"></script>
